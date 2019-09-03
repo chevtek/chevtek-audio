@@ -1,0 +1,26 @@
+{
+  "title": "With Disadvantage",
+  "description": "A friendly D&D show with a group of friends that get together every Sunday to have a good time!",
+  "feed_url": "http://withdisadvantage.com/feed",
+  "site_url": "http://withdisadvantage.com",
+  "author": "Chevtek Audio",
+  "language": "en",
+  "categories": ["Leisure", "Games", "Hobbies"],
+  "pubDate": "Aug 31, 2019 12:00:00 GMT",
+  "ttl": "60",
+  "itunesAuthor": "Chevtek Audio",
+  "itunesSubtitle": "A fun and friendly D&D podcast!",
+  "itunesSummary": "A friendly D&D show with a group of friends that get together every Sunday to have a good time!",
+  "itunesOwner": {
+    "name": "Chev",
+    "email": "chev@chevtek.io"
+  },
+  "itunesExplicit": true,
+  "itunesCategory": {
+    "text": "Leisure",
+    "subcats": [
+      { "text": "Games" },
+      { "text": "Hobbies" }
+    ]
+  }
+}

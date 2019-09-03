@@ -1,0 +1,27 @@
+{
+  "bindings": [
+    {
+      "authLevel": "anonymous",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get"
+      ],
+      "route": "feed/{podcastName}"
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "blob",
+      "direction": "in",
+      "name": "podcastBlobs",
+      "path": "{podcastName}",
+      "connection": "chevtekpodcasts_STORAGE"
+    }
+  ],
+  "scriptFile": "../dist/feed/index.js"
+}
