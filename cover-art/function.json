@@ -9,7 +9,7 @@
         "get",
         "head"
       ],
-      "route": "feed/{podcastName}"
+      "route": "cover-art/{imageName}"
     },
     {
       "type": "http",
@@ -17,5 +17,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/feed/index.js"
+  "scriptFile": "../dist/cover-art/index.js"
 }

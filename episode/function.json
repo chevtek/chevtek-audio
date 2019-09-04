@@ -9,7 +9,7 @@
         "get",
         "head"
       ],
-      "route": "feed/{podcastName}"
+      "route": "episode/{podcastName}/{episodeName}"
     },
     {
       "type": "http",
@@ -17,5 +17,5 @@
       "name": "res"
     }
   ],
-  "scriptFile": "../dist/feed/index.js"
+  "scriptFile": "../dist/episode/index.js"
 }
