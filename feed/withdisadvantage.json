@@ -1,8 +1,8 @@
 {
   "title": "With Disadvantage",
   "description": "A friendly D&D show with a group of friends that get together every Sunday to have a good time!",
-  "imageUrl": "http://audio.chevtek.io/cover-art/withdisadvantage.jpg",
-  "feed_url": "http://audio.chevtek.io/feed/withdisadvantage",
+  "imageUrl": "https://audio.chevtek.io/cover-art/withdisadvantage.jpg",
+  "feed_url": "https://audio.chevtek.io/feed/withdisadvantage",
   "site_url": "http://withdisadvantage.com",
   "author": "Chevtek Audio",
   "language": "en",
@@ -12,7 +12,7 @@
   "itunesAuthor": "Chevtek Audio",
   "itunesSubtitle": "A fun and friendly D&D podcast!",
   "itunesSummary": "A friendly D&D show with a group of friends that get together every Sunday to have a good time!",
-  "itunesImage": "http://audio.chevtek.io/cover-art/withdisadvantage.jpg",
+  "itunesImage": "https://audio.chevtek.io/cover-art/withdisadvantage.jpg",
   "itunesOwner": {
     "name": "Chev",
     "email": "chev@chevtek.io"
