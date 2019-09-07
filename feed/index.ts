@@ -18,28 +18,30 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     const blobs = await containerClient.listBlobsFlat({ include: ["metadata"] });
     for await (const blob of blobs) {
-      let episodeUrl = `${process.env.PROTOCOL}://${process.env.ANALYTICS_PREFIX}${process.env.DOMAIN}/episode/${podcastName}/${blob.name}`;
-      podcastFeed.addItem({
-        title: blob.metadata.title,
-        description: blob.metadata.description,
-        url: episodeUrl,
-        date: blob.metadata.date || blob.properties.creationTime,
-        enclosure: {
+      if (blob.metadata.isLive) {
+        let episodeUrl = `${process.env.PROTOCOL}://${process.env.ANALYTICS_PREFIX}${process.env.DOMAIN}/episode/${podcastName}/${blob.name}`;
+        podcastFeed.addItem({
+          title: blob.metadata.title,
+          description: blob.metadata.description,
           url: episodeUrl,
-          size: blob.properties.contentLength,
-          type: blob.properties.contentType
-        },
-        itunesAuthor: podcastData.itunesAuthor,
-        itunesExplicit: false,
-        itunesSubtitle: blob.metadata.subtitle,
-        itunesSummary: blob.metadata.description,
-        itunesTitle: blob.metadata.title,
-        itunesDuration: blob.metadata.duration,
-        itunesEpisodeType: blob.metadata.epidodeType || "full", // Can be "full", "trailer", or "bonus"
-        itunesSeason: blob.metadata.season || "",
-        itunesEpisode: blob.metadata.episode || "",
-        itunesKeywords: blob.metadata.keywords ? blob.metadata.keywords.split(',') : ""
-      });
+          date: blob.metadata.date || blob.properties.creationTime,
+          enclosure: {
+            url: episodeUrl,
+            size: blob.properties.contentLength,
+            type: blob.properties.contentType
+          },
+          itunesAuthor: podcastData.itunesAuthor,
+          itunesExplicit: false,
+          itunesSubtitle: blob.metadata.subtitle,
+          itunesSummary: blob.metadata.description,
+          itunesTitle: blob.metadata.title,
+          itunesDuration: blob.metadata.duration,
+          itunesEpisodeType: blob.metadata.epidodeType || "full", // Can be "full", "trailer", or "bonus"
+          itunesSeason: blob.metadata.season || "",
+          itunesEpisode: blob.metadata.episode || "",
+          itunesKeywords: blob.metadata.keywords ? blob.metadata.keywords.split(',') : ""
+        });
+      }
     }
 
     context.res = {
