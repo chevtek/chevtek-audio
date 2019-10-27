@@ -1,5 +1,5 @@
 import { AzureFunction, Context, HttpRequest } from "@azure/functions";
-import { BlobServiceClient, SharedKeyCredential } from "@azure/storage-blob";
+import { BlobServiceClient } from "@azure/storage-blob";
 import * as Podcast from "podcast";
 import * as fs from "fs";
 import * as util from "util";
@@ -10,10 +10,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
     const podcastName = context.bindingData.podcastName;
     const podcastData = JSON.parse((await readFileAsync(`./feed/${podcastName}.json`)).toString());
     const podcastFeed = new Podcast(podcastData);
-
-    const storageAccount = "chevtekpodcasts";
-    const sharedKeyCredential = new SharedKeyCredential(storageAccount, process.env.chevtekpodcasts_ACCESS_KEY);
-    const blobServiceClient = new BlobServiceClient(`https://${storageAccount}.blob.core.windows.net`, sharedKeyCredential);
+    const blobServiceClient = BlobServiceClient.fromConnectionString(process.env["chevtekpodcasts_STORAGE"]);
     const containerClient = blobServiceClient.getContainerClient(podcastName);
 
     const blobs = await containerClient.listBlobsFlat({ include: ["metadata"] });
