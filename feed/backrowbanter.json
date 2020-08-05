@@ -1,0 +1,28 @@
+{
+  "title": "Back Row Banter",
+  "description": "Casual review and commentary of movies, new and old!",
+  "imageUrl": "https://audio.chevtek.io/cover-art/backrowbanter.jpg",
+  "feed_url": "https://audio.chevtek.io/feed/backrowbanter",
+  "site_url": "http://ChevCast.tv",
+  "author": "ChevCast",
+  "language": "en",
+  "categories": ["TV & Film", "Film Reviews", "TV Reviews"],
+  "pubDate": "Nov 9, 2019 12:00:00 GMT",
+  "ttl": "60",
+  "itunesAuthor": "ChevCast",
+  "itunesSubtitle": "Casual review and commentary of movies, new and old!",
+  "itunesSummary": "Casual review and commentary of movies, new and old!",
+  "itunesImage": "https://audio.chevtek.io/cover-art/backrowbanter.jpg",
+  "itunesOwner": {
+    "name": "Chev",
+    "email": "chev@chevtek.io"
+  },
+  "itunesExplicit": true,
+  "itunesCategory": {
+    "text": "TV & Film",
+    "subcats": [
+      { "text": "Film Reviews" },
+      { "text": "TV Reviews" }
+    ]
+  }
+}
