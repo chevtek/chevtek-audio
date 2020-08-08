@@ -27,7 +27,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
 
     // Iterate over each blob and read the metadata into a podcast feed entry.
     for await (const blob of blobs) {
-      if (blob.metadata.isLive) {
+      if (blob.metadata.islive) {
         let episodeUrl = `${process.env.PROTOCOL}://${process.env.ANALYTICS_PREFIX}${process.env.DOMAIN}/episode/${podcastName}/${blob.name}`;
         podcastFeed.addItem({
           title: blob.metadata.title,
@@ -45,7 +45,7 @@ const httpTrigger: AzureFunction = async function (context: Context, req: HttpRe
           itunesSummary: blob.metadata.description,
           itunesTitle: blob.metadata.title,
           itunesDuration: blob.metadata.duration,
-          itunesEpisodeType: blob.metadata.epidodeType || "full", // Can be "full", "trailer", or "bonus"
+          itunesEpisodeType: blob.metadata.epidodetype || "full", // Can be "full", "trailer", or "bonus"
           itunesSeason: blob.metadata.season || "",
           itunesEpisode: blob.metadata.episode || "",
           itunesKeywords: blob.metadata.keywords ? blob.metadata.keywords.split(',') : ""
